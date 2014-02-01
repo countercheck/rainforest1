@@ -1,4 +1,16 @@
 <%= form_for @product do  |p|%>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h4 class="error">Sorry, we think something went wrong.  <%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved.</h4>
+
+      <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= p.label 'name'  %>
     <%= p.text_field 'name' %>
