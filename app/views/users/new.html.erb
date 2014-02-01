@@ -1,0 +1,28 @@
+<h1>So, you want to join Rainforest</h1>
+<h2>Sign up in just 1 easy step</h2>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h4>Sorry, we think something went wrong.  <%= pluralize(@product.errors.count, "error") %> prevented us from creating your account.</h4>
+      <ul>
+        <% for message in user.errors.full_messages %>
+          <li><%= message %></li>
+          <% end %> 
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions"><%= f.submit %></div>
+  <% end %>
