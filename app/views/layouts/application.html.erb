@@ -8,9 +8,16 @@
 </head>
 <body>
 
-<p><%= link_to "Home", root_path %> | <%= link_to "New Product", new_product_path %> | <%= link_to "Sign Up!", new_user_path %> | <%= link_to "Log in!", new_session_path %></p>
 
-<%= yield %>
+  <p><%= link_to "Home", root_path %> | <%= link_to "New Product", new_product_path %> | <%= link_to "Sign Up!", new_user_path %> | <%= link_to "Log in!", new_session_path %></p>
+
+  <% if flash[:notice]  %>
+    <p id="notice"><%= flash[:notice] %></p>
+  <% end %>
+  <% if flash[:alert] %>
+    <p id="alert"> <%= flash[:alert] %></p>
+  <% end %>
+  <%= yield %>
 
 </body>
 </html>
