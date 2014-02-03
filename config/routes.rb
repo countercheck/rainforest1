@@ -1,5 +1,7 @@
 Rainforest1::Application.routes.draw do
-  resources :products
+  resources :products do
+    resources :reviews, except: [:index]
+  end
   resources :users , only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   root 'products#index'
