@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-
+  before_filter :ensure_logged_in, except: [:show]
   before_filter :load_product
 
   def show
