@@ -7,9 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <div class="row">
+      <div class="small-6 columns">
+        <h1><%= link_to "Rainforest", root_path %></h1>
+      </div>
+      <div class="small-6 columns left">
+      </div>
+        <p class="userinfo">
+          <% if current_user %>
+            Signed in as <%= current_user.name %>.  <%= link_to "Log out", session_path("current"), method: :delete %>
+          <% else %>
+            <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+          <% end %>
+      </p>
+    </div>
+  </header>
 
-
-  <p><%= link_to "Home", root_path %> | <%= link_to "New Product", new_product_path %></p>
+  <article>
 
   <% if flash[:notice]  %>
     <p id="notice"><%= flash[:notice] %></p>
@@ -19,13 +34,7 @@
   <% end %>
   <%= yield %>
 
-  <p class="userinfo">
-    <% if current_user %>
-      Signed in as <%= current_user.name %>.  <%= link_to "Log out", session_path("current"), method: :delete %>
-    <% else %>
-      <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
-    <% end %>
-  </p>
-
+  
+  </article>
 </body>
 </html>

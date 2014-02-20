@@ -1,3 +1,7 @@
-<h3> <%= link_to product.name, product_path(product)%> </h3>
-<p> $<%= product.formatted_price %> </p>
-<p> <%= product.description %> </p>
+<div class="product">
+  <div class="row">
+    <div class="small-12 columns"><h3> <%= link_to product.name, product_path(product)%> </h3></div>
+    <div class="small-6 columns"><p> $<%= product.formatted_price %> </p></div>
+  </div>
+  <div class="row"><div class="small-12 columns"><p> <%= product.description %> </p></div></div>
+</div>
