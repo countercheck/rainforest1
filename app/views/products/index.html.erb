@@ -7,5 +7,8 @@
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Search" %>
 <% end %>
-<%= render partial: 'product', collection: @products %>
+<div id="products">
+  <%= render @products %>
+</div>
+
 <%= paginate @products %>
