@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
     else
       Product.all
     end
+    @products = @products.order(created_at: :desc).page(params[:page])
+
   end
 
   def show
